@@ -20,26 +20,16 @@
   </style>
 </head>
 <body>
-  <h1>Cálculo de IDEB (Página Única)</h1>
-  <p class="muted">Preencha e clique em calcular. Os resultados aparecem nesta mesma página.</p>
+  <h1>Cálculo de IDEB </h1>
+  <p class="muted">Preencha e clique em calcular.</p>
 
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
+  {% with messages = get_flashed_messages() %} <!-- NÃO TIRA ISSO GABS-->
+    {% if messages %} <!-- NÃO TIRA ISSO GABS-->
       <div class="msg">{{ messages[0] }}</div>
-    {% endif %}
-  {% endwith %}
+    {% endif %} <!-- NÃO TIRA ISSO GABS-->
+  {% endwith %} <!-- NÃO TIRA ISSO GABS-->
 
   <form method="POST" action="/">
-    <!-- Notas do aluno -->
-    <label>
-      Nota de Matemática (MediaM)
-      <input type="number" name="MediaM" step="0.01" required />
-    </label>
-    <label>
-      Nota de Português (MediaP)
-      <input type="number" name="MediaP" step="0.01" required />
-    </label>
-
     <!-- Médias da escola -->
     <label>
       Média da escola em Matemática (EscolaM)
@@ -81,7 +71,7 @@
     <button type="submit">Calcular</button>
   </form>
 
-  {% if enviado %}
+  {% if enviado %} <!-- NÃO TIRA ISSO GABS-->
     <div class="card">
       <h2>Notas</h2>
       <div class="grid-2 mono">
@@ -93,7 +83,7 @@
     </div>
 
     <div class="card">
-      <h2>Médias</h2>
+      <h2>Proficiência Média</h2>
       <div class="grid-2 mono">
         <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div>
         <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div>
@@ -115,6 +105,13 @@
         <div>Total: {{ '%.4f' % Total }}</div>
         <div>Tempo: {{ '%.4f' % Tempo }}</div>
         <div>Padronizado: {{ '%.4f' % Padronizado }}</div>
-        {% endif %}
-      </div> <!-- Fechar a div corretamente aqui -->
+      </div>
+      
+      <div class="card">
+        <h2>IDEB</h2>
+        <div class="grid-2 mono">
+          <div>IDEB: {{ '%.4f' % IDEB }}</div>
+        </div> 
+       {% endif %} <!-- NÃO TIRA ISSO GABS-->
+
     </div> <!-- Fechar o bloco card -->

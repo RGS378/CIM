@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash
 
 app = Flask(__name__)
-app.secret_key = "dev"  # necessário pro flash (mensagens), troque em produção
+app.secret_key = "dev"  
 
 DPm, DPp = 59, 56  # constantes
 
@@ -11,8 +11,6 @@ def index():
     if request.method == "POST":
         try:
             # Inputs
-            MediaM   = float(request.form["MediaM"])
-            MediaP   = float(request.form["MediaP"])
             EscolaM  = float(request.form["EscolaM"])
             EscolaP  = float(request.form["EscolaP"])
             Alunos1  = float(request.form["Alunos1"])
@@ -23,10 +21,10 @@ def index():
             Aprov3   = float(request.form["Aprov3"])
 
             # Notas
-            SinfM = MediaM - 3 * DPm
-            SinfP = MediaP - 3 * DPp
-            SsupM = MediaM + 3 * DPm
-            SsupP = MediaP + 3 * DPp
+            SinfM = 111.70
+            SinfP = 115.90
+            SsupM = 465.70
+            SsupP = 451.90
             MediaExM = SsupM - SinfM
             MediaExP = SsupP - SinfP
 
@@ -68,4 +66,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
