@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Cálculo IDEB </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    h1 { margin-bottom: 8px; }
+    form { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 20px; }
+    label { display: grid; gap: 6px; }
+    input { padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
+    button { grid-column: 1 / -1; padding: 12px; border: 0; border-radius: 10px; cursor: pointer; font-weight: 600; }
+    button { background: #222; color: #fff; }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 16px; margin: 16px 0; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .muted { color: #666; font-size: 14px; }
+    .msg { background: #fff3cd; border: 1px solid #ffe69c; color: #664d03; padding: 10px 12px; border-radius: 8px; margin: 12px 0; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
+</head>
+<body>
+  <h1>Cálculo de IDEB (Página Única)</h1>
+  <p class="muted">Preencha e clique em calcular. Os resultados aparecem nesta mesma página.</p>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="msg">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="/">
+    <!-- Notas do aluno -->
+    <label>
+      Nota de Matemática (MediaM)
+      <input type="number" name="MediaM" step="0.01" required />
+    </label>
+    <label>
+      Nota de Português (MediaP)
+      <input type="number" name="MediaP" step="0.01" required />
+    </label>
+
+    <!-- Médias da escola -->
+    <label>
+      Média da escola em Matemática (EscolaM)
+      <input type="number" name="EscolaM" step="0.01" required />
+    </label>
+    <label>
+      Média da escola em Português (EscolaP)
+      <input type="number" name="EscolaP" step="0.01" required />
+    </label>
+
+    <!-- Aprovação por série -->
+    <label>
+      Alunos 1ª série
+      <input type="number" name="Alunos1" step="0.01" required />
+    </label>
+    <label>
+      Aprovados 1ª série
+      <input type="number" name="Aprov1" step="0.01" required />
+    </label>
+
+    <label>
+      Alunos 2ª série
+      <input type="number" name="Alunos2" step="0.01" required />
+    </label>
+    <label>
+      Aprovados 2ª série
+      <input type="number" name="Aprov2" step="0.01" required />
+    </label>
+
+    <label>
+      Alunos 3ª série
+      <input type="number" name="Alunos3" step="0.01" required />
+    </label>
+    <label>
+      Aprovados 3ª série
+      <input type="number" name="Aprov3" step="0.01" required />
+    </label>
+
+    <button type="submit">Calcular</button>
+  </form>
+
+  {% if enviado %}
+    <div class="card">
+      <h2>Notas</h2>
+      <div class="grid-2 mono">
+        <div>Menor nota Matemática (SinfM): {{ '%.2f' % SinfM }}</div>
+        <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div>
+        <div>Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div>
+        <div>Maior nota Português (SsupP): {{ '%.2f' % SsupP }}</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Médias</h2>
+      <div class="grid-2 mono">
+        <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div>
+        <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div>
+        <div>Proficiência Matemática: {{ '%.2f' % ProficM }}</div>
+        <div>Proficiência Português: {{ '%.2f' % ProficP }}</div>
+        <div><strong>Média Total:</strong> {{ '%.2f' % MediaTotal }}</div>
+      </div>
+    </div>
+
+        <div class="card">
+      <h2>Aprovação</h2>
+      <div class="grid-2 mono">
+        <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div>
+        <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div>
+        <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div>
+        <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div>
+        <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div>
+        <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div>
+        <div>Total: {{ '%.4f' % Total }}</div>
+        <div>Tempo: {{ '%.4f' % Tempo }}</div>
+        <div>Padronizado: {{ '%.4f' % Padronizado }}</div>
+        {% endif %}
+      </div> <!-- Fechar a div corretamente aqui -->
+    </div> <!-- Fechar o bloco card -->
