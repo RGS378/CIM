@@ -93,7 +93,7 @@
       </div>
     </div>
 
-        <div class="card">
+    <div class="card">
       <h2>Aprovação</h2>
       <div class="grid-2 mono">
         <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div>
@@ -106,12 +106,15 @@
         <div>Tempo: {{ '%.4f' % Tempo }}</div>
         <div>Padronizado: {{ '%.4f' % Padronizado }}</div>
       </div>
-      
-      <div class="card">
-        <h2>IDEB</h2>
-        <div class="grid-2 mono">
-          <div>IDEB: {{ '%.4f' % IDEB }}</div>
-        </div> 
-       {% endif %} <!-- NÃO TIRA ISSO GABS-->
+    </div>
 
-    </div> <!-- Fechar o bloco card -->
+    <div class="card">
+      <h2>IDEB</h2>
+      <div class="grid-2 mono">
+        <div>IDEB: {{ '%.2f' % IDEB }}</div>
+      </div>
+    </div>
+  </div>
+{% endif %} <!-- NÃO TIRA ISSO GABS-->
+</body>
+</html>
