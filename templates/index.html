@@ -1,120 +1,309 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="utf-8" />
-  <title>Cálculo IDEB </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 16px; }
-    h1 { margin-bottom: 8px; }
-    form { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 20px; }
-    label { display: grid; gap: 6px; }
-    input { padding: 10px; border: 1px solid #ddd; border-radius: 8px; }
-    button { grid-column: 1 / -1; padding: 12px; border: 0; border-radius: 10px; cursor: pointer; font-weight: 600; }
-    button { background: #222; color: #fff; }
-    .card { border: 1px solid #eee; border-radius: 12px; padding: 16px; margin: 16px 0; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
-    .muted { color: #666; font-size: 14px; }
-    .msg { background: #fff3cd; border: 1px solid #ffe69c; color: #664d03; padding: 10px 12px; border-radius: 8px; margin: 12px 0; }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
-  </style>
+       <meta charset="utf-8" />
+       <title>Cálculo IDEB </title>
+       <meta name="viewport" content="width=device-width, initial-scale=1" />
+       <link rel="shortcut icon" href="/templates/img/icons8-calculator-48.png" type="image/x-icon">
 </head>
+<style>
+       body {
+              font-family: system-ui, Arial, sans-serif;
+              max-width: 900px;
+              margin: 24px auto;
+              padding: 0 16px;
+              background: #ffffff;
+       }
+
+       h1 {
+              margin-bottom: 8px;
+              color: #03624C;
+              display: flex;
+              justify-content: center;
+       }
+
+       h2,
+       h3 {
+              margin-bottom: 8px;
+              color: #EB7A34;
+              display: flex;
+              justify-content: center;
+       }
+
+       form {
+              display: grid;
+              align-items: center;
+              flex-direction: column;
+              border: 3px solid #030F0F;
+              border-radius: 20px;
+              padding: 16px;
+              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+              margin-bottom: 20px;
+              gap: 8px;
+       }
+
+       .logo_mg {
+              width: 100%;
+       }
+
+       .Mat,
+       .Port,
+       .Salas,
+       .Aprov {
+              display: flex;
+              flex-direction: column;
+              align-items: start;
+              color: #030f0f;
+       }
+
+       .mediaT {
+              margin-top: 12px;
+              font-size: 18px;
+              color: #358926;
+       }
+
+       .taxa {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+       }
+
+       .aprovad {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+       }
+
+       label {
+              display: grid;
+              gap: 6px;
+              color: #F5F5F5;
+       }
+
+       input {
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+       }
+
+       button {
+              grid-column: 1 / -1;
+              padding: 12px;
+              border: 0;
+              border-radius: 10px;
+              cursor: pointer;
+              font-weight: 600;
+       }
+
+       button {
+              background: #358926;
+              color: #fff;
+       }
+
+       .card {
+              border: 2.3px solid #030F0F;
+              border-radius: 12px;
+              padding: 16px;
+              margin: 16px 0;
+       }
+
+       .grid-2 {
+              display: flex;
+              flex-direction: column;
+              grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+              gap: 2px;
+              color: #664d03;
+       }
+
+       .part_notas {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+       }
+
+       .profic {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+       }
+
+       .deBaixo {
+              display: flex;
+              gap: 40px;
+              justify-content: center;
+       }
+
+       .ideb {
+              display: flex;
+              gap: 20px;
+              justify-content: center;
+              align-items: center;
+       }
+
+       .estrela_mg {
+              width: 90px;
+              height: 90px;
+              animation: flutuar 4s ease-in-out infinite;
+              margin-left: 90%;
+              margin-top: -42%;
+       }
+
+       @keyframes flutuar {
+
+              0%,
+              100% {
+                     transform: translateY(0);
+              }
+
+              50% {
+                     transform: translateY(-10px);
+              }
+       }
+
+       .muted {
+              color: #666;
+              font-size: 14px;
+       }
+
+       .msg {
+              background: #fff3cd;
+              border: 1px solid #ffe69c;
+              color: #664d03;
+              padding: 10px 12px;
+              border-radius: 8px;
+              margin: 12px 0;
+       }
+
+       .mono {
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+       }
+</style>
+
 <body>
-  <h1>Cálculo de IDEB </h1>
-  <p class="muted">Preencha e clique em calcular.</p>
+       <img src="https://i.ibb.co/G4mfqCq3/17566292515265.png" alt="logo__mg" class="logo_mg">
 
-  {% with messages = get_flashed_messages() %} <!-- NÃO TIRA ISSO GABS-->
-    {% if messages %} <!-- NÃO TIRA ISSO GABS-->
-      <div class="msg">{{ messages[0] }}</div>
-    {% endif %} <!-- NÃO TIRA ISSO GABS-->
-  {% endwith %} <!-- NÃO TIRA ISSO GABS-->
+       <h1>Cálculo de IDEB </h1><br>
 
-  <form method="POST" action="/">
-    <!-- Médias da escola -->
-    <label>
-      Média da escola em Matemática (EscolaM)
-      <input type="number" name="EscolaM" step="0.01" required />
-    </label>
-    <label>
-      Média da escola em Português (EscolaP)
-      <input type="number" name="EscolaP" step="0.01" required />
-    </label>
+       {% with messages = get_flashed_messages() %} <!-- NÃO TIRA ISSO GABS-->
+       {% if messages %} <!-- NÃO TIRA ISSO GABS-->
+       <div class="msg">{{ messages[0] }}</div>
+       {% endif %} <!-- NÃO TIRA ISSO GABS-->
+       {% endwith %} <!-- NÃO TIRA ISSO GABS-->
 
-    <!-- Aprovação por série -->
-    <label>
-      Alunos 1ª série
-      <input type="number" name="Alunos1" step="0.01" required />
-    </label>
-    <label>
-      Aprovados 1ª série
-      <input type="number" name="Aprov1" step="0.01" required />
-    </label>
+       <form method="POST" action="/">
+              <!-- Médias da escola -->
+              <label class="Mat">
+                     Média da escola em Matemática (EscolaM)
+                     <input type="number" name="EscolaM" placeholder="Digite Aqui" step="0.01" required />
+              </label>
+              <label class="Port">
+                     Média da escola em Português (EscolaP)
+                     <input type="number" name="EscolaP" placeholder="Digite Aqui" step="0.01" required />
+              </label>
 
-    <label>
-      Alunos 2ª série
-      <input type="number" name="Alunos2" step="0.01" required />
-    </label>
-    <label>
-      Aprovados 2ª série
-      <input type="number" name="Aprov2" step="0.01" required />
-    </label>
+                     <!-- Aprovação por série -->
 
-    <label>
-      Alunos 3ª série
-      <input type="number" name="Alunos3" step="0.01" required />
-    </label>
-    <label>
-      Aprovados 3ª série
-      <input type="number" name="Aprov3" step="0.01" required />
-    </label>
+                     <img src="https://i.ibb.co/mCchgyVq/72-Sem-T-tulo-20250827083007.png" alt="estrela"
+                            class="estrela_mg">
 
-    <button type="submit">Calcular</button>
-  </form>
+                     <label class="Salas">
+                            Alunos 1ª série
+                            <input type="number" name="Alunos1" placeholder="Nº de Alunos" step="0.01" required />
+                     </label>
 
-  {% if enviado %} <!-- NÃO TIRA ISSO GABS-->
-    <div class="card">
-      <h2>Notas</h2>
-      <div class="grid-2 mono">
-        <div>Menor nota Matemática (SinfM): {{ '%.2f' % SinfM }}</div>
-        <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div>
-        <div>Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div>
-        <div>Maior nota Português (SsupP): {{ '%.2f' % SsupP }}</div>
-      </div>
-    </div>
+                     <label class="Aprov">
+                            Aprovados 1ª série
+                            <input type="number" name="Aprov1" placeholder="Nº de Aprovados" step="0.01" required />
+                     </label>
 
-    <div class="card">
-      <h2>Proficiência Média</h2>
-      <div class="grid-2 mono">
-        <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div>
-        <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div>
-        <div>Proficiência Matemática: {{ '%.2f' % ProficM }}</div>
-        <div>Proficiência Português: {{ '%.2f' % ProficP }}</div>
-        <div><strong>Média Total:</strong> {{ '%.2f' % MediaTotal }}</div>
-      </div>
-    </div>
+                     <label class="Salas">
+                            Alunos 2ª série
+                            <input type="number" name="Alunos2" placeholder="Nº de Alunos" step="0.01" required />
+                     </label>
+                     <label class="Aprov">
+                            Aprovados 2ª série
+                            <input type="number" name="Aprov2" placeholder="Nº de Aprovados" step="0.01" required />
+                     </label>
 
-    <div class="card">
-      <h2>Aprovação</h2>
-      <div class="grid-2 mono">
-        <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div>
-        <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div>
-        <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div>
-        <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div>
-        <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div>
-        <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div>
-        <div>Total: {{ '%.4f' % Total }}</div>
-        <div>Tempo: {{ '%.4f' % Tempo }}</div>
-        <div>Padronizado: {{ '%.4f' % Padronizado }}</div>
-      </div>
-    </div>
+                     <label class="Salas">
+                            Alunos 3ª série
+                            <input type="number" name="Alunos3" placeholder="Nº de Alunos" step="0.01" required />
+                     </label>
+                     <label class="Aprov">
+                            Aprovados 3ª série
+                            <input type="number" name="Aprov3" placeholder="Nº de Aprovados" step="0.01" required />
+                     </label>
 
-    <div class="card">
-      <h2>IDEB</h2>
-      <div class="grid-2 mono">
-        <div>IDEB: {{ '%.2f' % IDEB }}</div>
-      </div>
-    </div>
-  </div>
-{% endif %} <!-- NÃO TIRA ISSO GABS-->
+                     <button type="submit">Calcular</button>
+       </form>
+
+       {% if enviado %} <!-- NÃO TIRA ISSO GABS-->
+       <div class="card">
+              <h2>Notas</h2><br>
+              <div class="grid-2 mono">
+                     <div class="part_notas">
+                            <div>Menor nota Matemática (SinfM): {{ '%.2f' % SinfM }}</div><br>
+                            <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div><br>
+                            <div>Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div><br>
+                            <div>Maior nota Português (SsupP): {{ '%.2f' % SsupP }}</div><br>
+                     </div>
+              </div>
+       </div>
+
+       <div class="card">
+              <h2>Proficiência Média</h2><br>
+              <div class="grid-2 mono">
+                     <div class="profic">
+                            <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div><br>
+                            <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div><br>
+                            <div>Proficiência Matemática: {{ '%.2f' % ProficM }}</div><br>
+                            <div>Proficiência Português: {{ '%.2f' % ProficP }}</div><br>
+                            <div class="mediaT"><strong>Média Total:</strong> {{ '%.2f' % MediaTotal }}</div>
+                     </div>
+              </div>
+       </div>
+
+       <div class="card">
+              <h2>Aprovação</h2>
+              <div class="grid-2 mono">
+                     <h3>____________________</h3>
+                     <div class="taxa">
+                            <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div><br>
+                            <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div><br>
+                            <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div><br>
+                     </div>
+
+                     <h3>_______________________</h3>
+                     <div class="aprovad">
+                            <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div><br>
+                            <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div><br>
+                            <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div><br>
+                     </div>
+
+                     <h3>_______________________</h3>
+                     <div class="deBaixo">
+                            <div>Total: {{ '%.4f' % Total }}</div><br>
+                            <div>Tempo: {{ '%.4f' % Tempo }}</div><br>
+                            <div>Padronizado: {{ '%.4f' % Padronizado }}</div><br>
+                     </div>
+              </div>
+       </div>
+
+       <div class="card">
+              <h2>IDEB</h2><br>
+              <div class="grid-2 mono">
+                     <div class="ideb">
+                            <div>IDEB: {{ '%.2f' % IDEB }}</div>
+                     </div>
+              </div>
+       </div>
+       </div>
+       {% endif %} <!-- NÃO TIRA ISSO GABS-->
 </body>
+
 </html>
