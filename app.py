@@ -44,7 +44,7 @@ def index():
 
             Total = Ap1 + Ap2 + Ap3
             Tempo = Total / 3
-            Padronizado = 1 / Tempo if Tempo not in (0, float("nan")) else float("nan")
+            Padronizado = (100 / Tempo) if Tempo not in (0, float("nan")) else float("nan")
 
             IDEB = MediaTotal * Padronizado
 
