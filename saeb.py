@@ -4,8 +4,8 @@ from decimal import Decimal, getcontext
 getcontext().prec = 10
 
 # Entradas com Decimal
-MediaM = Decimal(input('Nota de matemática: '))
-MediaP = Decimal(input('Nota de Português: '))
+MediaM = Decimal('288.7')
+MediaP = Decimal('283.9')
 
 DPm = Decimal('59')
 DPp = Decimal('56')
