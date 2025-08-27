@@ -71,7 +71,7 @@ Tempo = Total / Decimal('3')
 print(f'O tempo de aprovado é {Tempo}')
 
 Padronizado = Decimal('1') / Tempo
-print(f'O padronizado é {Padronizado}')
+print(f'O padronizado é {Padronizado * Decimal("100"):.2f}%')
 
 IDEB = MediaTotal * Padronizado
 print(f'A nota da IDEB é {IDEB}')
