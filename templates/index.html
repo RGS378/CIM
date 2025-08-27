@@ -16,35 +16,35 @@
               background: #ffffff;
        }
 
-       h1 {
+       h1, h2, h3 {
               margin-bottom: 8px;
-              color: #03624C;
+              color: #007D45;
               display: flex;
               justify-content: center;
+              font-size: 35px;
        }
 
-       h2,
-       h3 {
-              margin-bottom: 8px;
-              color: #EB7A34;
-              display: flex;
-              justify-content: center;
+       h2 {
+              margin-top: 20px;
+
        }
 
        form {
               display: grid;
               align-items: center;
               flex-direction: column;
-              border: 3px solid #030F0F;
+              border: 3px solid #007D45;
               border-radius: 20px;
               padding: 16px;
               grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
               margin-bottom: 20px;
-              gap: 8px;
+              gap: 45px;
        }
 
        .logo_mg {
               width: 100%;
+              max-width: 700px;
+              margin-left: 80px;
        }
 
        .Mat,
@@ -68,6 +68,7 @@
               flex-direction: column;
               justify-content: center;
               align-items: center;
+              margin-top: 40px;
        }
 
        .aprovad {
@@ -75,6 +76,7 @@
               flex-direction: column;
               justify-content: center;
               align-items: center;
+              margin-top: 40px;
        }
 
        label {
@@ -99,8 +101,28 @@
        }
 
        button {
-              background: #358926;
+              background: #20742D;
               color: #fff;
+              font-size: 20px;
+       }
+
+       button:hover {
+              background-color: #358926;
+              animation: escala 0.4s ease-in-out;
+       }
+
+       @keyframes escala {
+              0% {
+                     transform: scale3d(1, 1, 1);
+              }
+
+              50% {
+                     transform: scale3d(1.05, 1.05, 1.05);
+              }
+
+              100% {
+                     transform: scale3d(1, 1, 1);
+              }
        }
 
        .card {
@@ -114,8 +136,8 @@
               display: flex;
               flex-direction: column;
               grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-              gap: 2px;
-              color: #664d03;
+              gap: -1px;
+              color: #20742D;
        }
 
        .part_notas {
@@ -123,6 +145,7 @@
               flex-direction: column;
               justify-content: center;
               align-items: center;
+              gap: -20px;
        }
 
        .profic {
@@ -136,6 +159,7 @@
               display: flex;
               gap: 40px;
               justify-content: center;
+              margin-top: 40px;
        }
 
        .ideb {
@@ -165,6 +189,25 @@
               }
        }
 
+       .star_mg {
+              width: 70px;
+              height: 70px;
+              animation: voar 3s ease-in-out infinite;
+              margin-left: -4%;
+              margin-top: -36%;
+       }
+
+       @keyframes voar {
+              0%,
+              100% {
+                     transform: translateY(0);
+              }
+
+              50% {
+                     transform: translateY(-4px);
+              }
+       }
+
        .muted {
               color: #666;
               font-size: 14px;
@@ -182,10 +225,22 @@
        .mono {
               font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
        }
+
+       .line {
+              margin: -20px;
+       }
+
+       .linha {
+              margin: 1px;
+       }
+
+       .maior {
+              margin-top: 30px;
+       }
 </style>
 
 <body>
-       <img src="https://i.ibb.co/G4mfqCq3/17566292515265.png" alt="logo__mg" class="logo_mg">
+       <img src="https://i.ibb.co/KxRctrkb/73-Sem-T-tulo-20250827094537.png" alt="logo__mg" class="logo_mg">
 
        <h1>Cálculo de IDEB </h1><br>
 
@@ -206,41 +261,42 @@
                      <input type="number" name="EscolaP" placeholder="Digite Aqui" step="0.01" required />
               </label>
 
-                     <!-- Aprovação por série -->
+              <!-- Aprovação por série -->
 
-                     <img src="https://i.ibb.co/mCchgyVq/72-Sem-T-tulo-20250827083007.png" alt="estrela"
-                            class="estrela_mg">
+              <img src="https://i.ibb.co/mCchgyVq/72-Sem-T-tulo-20250827083007.png" alt="estrela" class="estrela_mg">
 
-                     <label class="Salas">
-                            Alunos 1ª série
-                            <input type="number" name="Alunos1" placeholder="Nº de Alunos" step="0.01" required />
-                     </label>
+              <label class="Salas">
+                     Alunos 1ª série
+                     <input type="number" name="Alunos1" placeholder="Nº de Alunos" step="0.01" required />
+              </label>
 
-                     <label class="Aprov">
-                            Aprovados 1ª série
-                            <input type="number" name="Aprov1" placeholder="Nº de Aprovados" step="0.01" required />
-                     </label>
+              <label class="Aprov">
+                     Aprovados 1ª série
+                     <input type="number" name="Aprov1" placeholder="Nº de Aprovados" step="0.01" required />
+              </label>
 
-                     <label class="Salas">
-                            Alunos 2ª série
-                            <input type="number" name="Alunos2" placeholder="Nº de Alunos" step="0.01" required />
-                     </label>
-                     <label class="Aprov">
-                            Aprovados 2ª série
-                            <input type="number" name="Aprov2" placeholder="Nº de Aprovados" step="0.01" required />
-                     </label>
+              <label class="Salas">
+                     Alunos 2ª série
+                     <input type="number" name="Alunos2" placeholder="Nº de Alunos" step="0.01" required />
+              </label>
+              <label class="Aprov">
+                     Aprovados 2ª série
+                     <input type="number" name="Aprov2" placeholder="Nº de Aprovados" step="0.01" required />
+              </label>
 
-                     <label class="Salas">
-                            Alunos 3ª série
-                            <input type="number" name="Alunos3" placeholder="Nº de Alunos" step="0.01" required />
-                     </label>
-                     <label class="Aprov">
-                            Aprovados 3ª série
-                            <input type="number" name="Aprov3" placeholder="Nº de Aprovados" step="0.01" required />
-                     </label>
+              <label class="Salas">
+                     Alunos 3ª série
+                     <input type="number" name="Alunos3" placeholder="Nº de Alunos" step="0.01" required />
+              </label>
+              <label class="Aprov">
+                     Aprovados 3ª série
+                     <input type="number" name="Aprov3" placeholder="Nº de Aprovados" step="0.01" required />
+              </label>
 
-                     <button type="submit">Calcular</button>
+              <button type="submit">Calcular</button>
        </form>
+
+       <img src="https://i.ibb.co/mCchgyVq/72-Sem-T-tulo-20250827083007.png" alt="estrela" class="star_mg">
 
        {% if enviado %} <!-- NÃO TIRA ISSO GABS-->
        <div class="card">
@@ -248,8 +304,9 @@
               <div class="grid-2 mono">
                      <div class="part_notas">
                             <div>Menor nota Matemática (SinfM): {{ '%.2f' % SinfM }}</div><br>
-                            <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div><br>
-                            <div>Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div><br>
+                            <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div>
+                            <h3 class="linha">_______________________</h3>
+                            <div class="maior">Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div><br>
                             <div>Maior nota Português (SsupP): {{ '%.2f' % SsupP }}</div><br>
                      </div>
               </div>
@@ -260,8 +317,9 @@
               <div class="grid-2 mono">
                      <div class="profic">
                             <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div><br>
-                            <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div><br>
-                            <div>Proficiência Matemática: {{ '%.2f' % ProficM }}</div><br>
+                            <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div>
+                            <h3 class="linha">_______________________</h3>
+                            <div class="maior">Proficiência Matemática: {{ '%.2f' % ProficM }}</div><br>
                             <div>Proficiência Português: {{ '%.2f' % ProficP }}</div><br>
                             <div class="mediaT"><strong>Média Total:</strong> {{ '%.2f' % MediaTotal }}</div>
                      </div>
@@ -271,21 +329,21 @@
        <div class="card">
               <h2>Aprovação</h2>
               <div class="grid-2 mono">
-                     <h3>____________________</h3>
+                     <h3 class="line">_______________________</h3>
                      <div class="taxa">
                             <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div><br>
                             <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div><br>
                             <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div><br>
                      </div>
 
-                     <h3>_______________________</h3>
+                     <h3 class="line">_______________________</h3>
                      <div class="aprovad">
                             <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div><br>
                             <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div><br>
-                            <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div><br>
+                            <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div>
                      </div>
 
-                     <h3>_______________________</h3>
+                     <h3 class="line">_______________________</h3>
                      <div class="deBaixo">
                             <div>Total: {{ '%.4f' % Total }}</div><br>
                             <div>Tempo: {{ '%.4f' % Tempo }}</div><br>
