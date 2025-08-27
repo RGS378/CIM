@@ -30,11 +30,11 @@ print(f'A média extrema de Matemática é {MediaExM}')
 print(f'A média extrema de Português é {MediaExP}')
 
 print('==== SOBRE A ESCOLA ====')
-EscolaM = Decimal(input('Nota média da escola em matemática é: '))
-EscolaP = Decimal(input('Nota média da escola em português é: '))
+escolam = Decimal(input('Nota média da escola em matemática é: '))
+escolap = Decimal(input('Nota média da escola em português é: '))
 
-ProficienciaP = ((EscolaP - SinfP) / MediaExP) * Decimal('10')
-ProficienciaM = ((EscolaM - SinfM) / MediaExM) * Decimal('10')
+ProficienciaP = ((escolap - SinfP) / MediaExP) * Decimal('10')
+ProficienciaM = ((escolam - SinfM) / MediaExM) * Decimal('10')
 
 print(f'A proficiência de Matemática é {ProficienciaM} e a de Português é {ProficienciaP}')
 
