@@ -347,7 +347,7 @@
                      <div class="deBaixo">
                             <div>Total: {{ '%.4f' % Total }}</div><br>
                             <div>Tempo: {{ '%.4f' % Tempo }}</div><br>
-                            <div>Padronizado: {{ '%.4f' % Padronizado }}</div><br>
+                            <div>Padronizado: {{ '%.2f' % Padronizado }}%</div><br> <!-- Alterado para mostrar porcentagem -->
                      </div>
               </div>
        </div>
@@ -356,7 +356,7 @@
               <h2>IDEB</h2><br>
               <div class="grid-2 mono">
                      <div class="ideb">
-                            <div>IDEB: {{ '%.2f' % IDEB }}</div>
+                            <div>IDEB: {{ '%.4f' % IDEB }}</div> <!-- Aumentei a precisão para 4 casas -->
                      </div>
               </div>
        </div>
