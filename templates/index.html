@@ -6,6 +6,7 @@
        <title>Cálculo IDEB </title>
        <meta name="viewport" content="width=device-width, initial-scale=1" />
        <link rel="shortcut icon" href="/templates/img/icons8-calculator-48.png" type="image/x-icon">
+       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <style>
        body {
@@ -16,7 +17,7 @@
               background: #ffffff;
        }
 
-       h1, h2, h3 {
+       h1 {
               margin-bottom: 8px;
               color: #007D45;
               display: flex;
@@ -24,11 +25,7 @@
               font-size: 35px;
        }
 
-       h2 {
-              margin-top: 20px;
-
-       }
-
+       /*====== Form ======*/
        form {
               display: grid;
               align-items: center;
@@ -56,41 +53,21 @@
               align-items: start;
               color: #030f0f;
        }
-
-       .mediaT {
-              margin-top: 12px;
-              font-size: 18px;
-              color: #358926;
-       }
-
-       .taxa {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              margin-top: 40px;
-       }
-
-       .aprovad {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              margin-top: 40px;
-       }
-
+       
        label {
               display: grid;
               gap: 6px;
               color: #F5F5F5;
        }
 
+       
+       
        input {
               padding: 10px;
               border: 1px solid #ddd;
               border-radius: 8px;
        }
-
+       
        button {
               grid-column: 1 / -1;
               padding: 12px;
@@ -99,76 +76,32 @@
               cursor: pointer;
               font-weight: 600;
        }
-
+       
        button {
               background: #20742D;
               color: #fff;
               font-size: 20px;
        }
-
+       
        button:hover {
               background-color: #358926;
               animation: escala 0.4s ease-in-out;
        }
-
+       
        @keyframes escala {
               0% {
                      transform: scale3d(1, 1, 1);
               }
-
+              
               50% {
                      transform: scale3d(1.05, 1.05, 1.05);
               }
-
+              
               100% {
                      transform: scale3d(1, 1, 1);
               }
        }
-
-       .card {
-              border: 2.3px solid #030F0F;
-              border-radius: 12px;
-              padding: 16px;
-              margin: 16px 0;
-       }
-
-       .grid-2 {
-              display: flex;
-              flex-direction: column;
-              grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-              gap: -1px;
-              color: #20742D;
-       }
-
-       .part_notas {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              gap: -20px;
-       }
-
-       .profic {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-       }
-
-       .deBaixo {
-              display: flex;
-              gap: 40px;
-              justify-content: center;
-              margin-top: 40px;
-       }
-
-       .ideb {
-              display: flex;
-              gap: 20px;
-              justify-content: center;
-              align-items: center;
-       }
-
+       
        .estrela_mg {
               width: 90px;
               height: 90px;
@@ -198,6 +131,7 @@
        }
 
        @keyframes voar {
+
               0%,
               100% {
                      transform: translateY(0);
@@ -208,39 +142,148 @@
               }
        }
 
-       .muted {
-              color: #666;
-              font-size: 14px;
+       /*======== FOOTER =========*/
+
+       :root {
+              --header-height: 3.5rem;
+
+              /*========== Colors ==========*/
+              /*Color mode HSL(hue, saturation, lightness)*/
+              --title-color: #696764;
+              --text-color: hsl(0, 2%, 59%);
+              --text-color-light: hsl(0, 0%, 60%);
+              --body-color: hsl(0, 0%, 0%);
+              --container-color: hsl(0, 0%, 100%);
+
+              /*========== Font and typography ==========*/
+              /*.5rem = 8px | 1rem = 16px ...*/
+              --body-font: "Poppins", sans-serif;
+              --second-font: "Montserrat", sans-serif;
+              --biggest-font-size: 2.75rem;
+              --h1-font-size: 1.5rem;
+              --h2-font-size: 1.25rem;
+              --h3-font-size: 1rem;
+              --normal-font-size: .938rem;
+              --small-font-size: .813rem;
+              --smaller-font-size: .75rem;
+
+              /*========== Font weight ==========*/
+              --font-regular: 400;
+              --font-medium: 500;
+              --font-semi-bold: 600;
+
+              /*========== z index ==========*/
+              --z-tooltip: 10;
+              --z-fixed: 100;
        }
 
-       .msg {
-              background: #fff3cd;
-              border: 1px solid #ffe69c;
-              color: #664d03;
-              padding: 10px 12px;
-              border-radius: 8px;
-              margin: 12px 0;
+
+       /*========== Responsive typography ==========*/
+       @media screen and (min-width: 1152px) {
+              :root {
+                     --biggest-font-size: 5.5rem;
+                     --h1-font-size: 2.5rem;
+                     --h2-font-size: 1.5rem;
+                     --h3-font-size: 1.25rem;
+                     --normal-font-size: 1rem;
+                     --small-font-size: .875rem;
+                     --smaller-font-size: .813rem;
+              }
        }
 
-       .mono {
-              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+       .footer {
+              padding-block: 2.5rem;
+              background-color: var(--container-color);
        }
 
-       .line {
-              margin: -20px;
+       .a {
+              text-decoration: none;
        }
 
-       .linha {
-              margin: 1px;
+       .footer__content {
+              row-gap: 3.5rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
        }
 
-       .maior {
-              margin-top: 30px;
+       .footer__logo {
+              display: inline-block;
+              color: var(--title-color);
+              font-size: var(--h2-font-size);
+              font-family: var(--second-font);
+              font-weight: var(--font-semi-bold);
+              margin-bottom: 1rem;
+       }
+
+       .footer__data {
+              grid-template-columns: repeat(2, max-content);
+              gap: 2.5rem;
+       }
+
+       .footer__title {
+              font-size: var(--h3-font-size);
+              margin-bottom: 1rem;
+       }
+
+       .footer__links {
+              display: grid;
+              row-gap: .75rem;
+       }
+
+       .footer__link {
+              color: var(--text-color);
+              transition: color .4s;
+       }
+
+       .footer__link:hover {
+              color: var(--title-color);
+       }
+
+       .footer__group,
+       .footer__social {
+              display: flex;
+       }
+
+       .footer__group {
+              margin-top: 5rem;
+              flex-direction: column;
+              align-items: center;
+              row-gap: 2rem;
+       }
+
+       .footer__social {
+              column-gap: 1.5rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: -10px;
+       }
+
+       .footer__social-link {
+              color: var(--text-color);
+              font-size: 1.25rem;
+              transition: color .4s, transform .4s;
+              text-decoration: none;
+       }
+
+       .footer__social-link:hover {
+              color: var(--title-color);
+              transform: translateY(-.25rem);
+       }
+
+       .footer__copy {
+              font-size: var(--smaller-font-size);
+              color: var(--text-color-light);
+              text-align: center;
+              margin-top: -30px;
        }
 </style>
 
 <body>
-       <img src="https://i.ibb.co/KxRctrkb/73-Sem-T-tulo-20250827094537.png" alt="logo__mg" class="logo_mg"> <!--Mudar isso-->>
+       <img src="https://i.ibb.co/KxRctrkb/73-Sem-T-tulo-20250827094537.png" alt="logo__mg" class="logo_mg">
+       <!--Mudar isso-->
 
        <h1>Cálculo de IDEB </h1><br>
 
@@ -298,70 +341,28 @@
 
        <img src="https://i.ibb.co/mCchgyVq/72-Sem-T-tulo-20250827083007.png" alt="estrela" class="star_mg">
 
-       {% if enviado %} <!-- NÃO TIRA ISSO GABS-->
-       <div class="card">
-              <h2>Notas</h2><br>
-              <div class="grid-2 mono">
-                     <div class="part_notas">
-                            <div>Menor nota Matemática (SinfM): {{ '%.2f' % SinfM }}</div><br>
-                            <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div>
-                            <h3 class="linha">_______________________</h3>
-                            <div class="maior">Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div><br>
-                            <div>Maior nota Português (SsupP): {{ '%.2f' % SsupP }}</div><br>
+       <!-- FOOTER -->
+
+       <footer class="footer" id="footer">
+              <div class="footer__container container grid">
+                     <div class="footer__social">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                                   class="footer__social-link">
+                                   <i class="ri-instagram-line"></i> Instagram
+                            </a>
+
+                            <a href="https://github.com/" target="_blank" rel="noopener" class="footer__social-link">
+                                   <i class="ri-github-fill"></i> GitHub
+                            </a>
+                     </div>
+
+                     <div class="footer__group">
+                            <span class="footer__copy">
+                                   &#169; Copyright QR-Score. All rights reserved
+                            </span>
                      </div>
               </div>
-       </div>
-
-       <div class="card">
-              <h2>Proficiência Média</h2><br>
-              <div class="grid-2 mono">
-                     <div class="profic">
-                            <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div><br>
-                            <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div>
-                            <h3 class="linha">_______________________</h3>
-                            <div class="maior">Proficiência Matemática: {{ '%.2f' % ProficM }}</div><br>
-                            <div>Proficiência Português: {{ '%.2f' % ProficP }}</div><br>
-                            <div class="mediaT"><strong>Média Total:</strong> {{ '%.2f' % MediaTotal }}</div>
-                     </div>
-              </div>
-       </div>
-
-       <div class="card">
-              <h2>Aprovação</h2>
-              <div class="grid-2 mono">
-                     <h3 class="line">_______________________</h3>
-                     <div class="taxa">
-                            <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div><br>
-                            <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div><br>
-                            <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div><br>
-                     </div>
-
-                     <h3 class="line">_______________________</h3>
-                     <div class="aprovad">
-                            <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div><br>
-                            <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div><br>
-                            <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div>
-                     </div>
-
-                     <h3 class="line">_______________________</h3>
-                     <div class="deBaixo">
-                            <div>Total: {{ '%.4f' % Total }}</div><br>
-                            <div>Tempo: {{ '%.4f' % Tempo }}</div><br>
-                            <div>Padronizado: {{ '%.4f' % Padronizado }}</div><br>
-                     </div>
-              </div>
-       </div>
-
-       <div class="card">
-              <h2>IDEB</h2><br>
-              <div class="grid-2 mono">
-                     <div class="ideb">
-                            <div>IDEB: {{ '%.2f' % IDEB }}</div>
-                     </div>
-              </div>
-       </div>
-       </div>
-       {% endif %} <!-- NÃO TIRA ISSO GABS-->
+       </footer>
 </body>
 
 </html>

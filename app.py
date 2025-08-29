@@ -7,7 +7,6 @@ DPm, DPp = 59, 56  # constantes
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    contexto = {}
     if request.method == "POST":
         try:
             # Inputs
@@ -33,7 +32,7 @@ def index():
             ProficP = ((EscolaP - SinfP) / MediaExP) * 10 if MediaExP != 0 else float("nan")
             MediaTotal = (ProficM + ProficP) / 2
 
-            # Aprovação (com checagem pra evitar divisão por zero)
+            # Aprovação (checagem pra evitar divisão por zero)
             Tx1 = Aprov1 / Alunos1 if Alunos1 else float("nan")
             Tx2 = Aprov2 / Alunos2 if Alunos2 else float("nan")
             Tx3 = Aprov3 / Alunos3 if Alunos3 else float("nan")
@@ -48,8 +47,8 @@ def index():
 
             IDEB = MediaTotal * Padronizado
 
-            # Atualizando o contexto com os resultados
-            contexto.update(dict(
+            # Contexto com os resultados
+            contexto = dict(
                 SinfM=SinfM, SinfP=SinfP, SsupM=SsupM, SsupP=SsupP,
                 MediaExM=MediaExM, MediaExP=MediaExP,
                 ProficM=ProficM, ProficP=ProficP, MediaTotal=MediaTotal,
@@ -57,12 +56,17 @@ def index():
                 Ap1=Ap1, Ap2=Ap2, Ap3=Ap3,
                 Total=Total, Tempo=Tempo, Padronizado=Padronizado, IDEB=IDEB,
                 enviado=True
-            ))
+            )
+
+            # Redireciona para a tela de resultados
+            return render_template('index2.html', **contexto)
+
         except ValueError:
             flash("Preencha todos os campos corretamente (números).")
             return render_template('index.html') 
 
-    return render_template('index.html', **contexto) 
+    # Se for GET, só mostra o form
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

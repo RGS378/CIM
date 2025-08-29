@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Informations</title>
+</head>
+<style>
+       body {
+              font-family: system-ui, Arial, sans-serif;
+              max-width: 900px;
+              margin: 24px auto;
+              padding: 0 16px;
+              background: #ffffff;
+       }
+
+       /*====== Cards ======*/
+
+       .card {
+              border: 2.3px solid #030F0F;
+              border-radius: 12px;
+              padding: 16px;
+              margin: 16px 0;
+       }
+
+       .mediaT {
+              margin-top: 12px;
+              font-size: 18px;
+              color: #358926;
+       }
+
+       .taxa {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin-top: 40px;
+       }
+
+       .aprovad {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin-top: 40px;
+       }
+
+       .grid-2 {
+              display: flex;
+              flex-direction: column;
+              grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+              gap: -1px;
+              color: #20742D;
+       }
+
+       .part_notas {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: -20px;
+       }
+
+       .profic {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+       }
+
+       .deBaixo {
+              display: flex;
+              gap: 40px;
+              justify-content: center;
+              margin-top: 40px;
+       }
+
+       .ideb {
+              display: flex;
+              gap: 20px;
+              justify-content: center;
+              align-items: center;
+       }
+
+
+       .muted {
+              color: #666;
+              font-size: 14px;
+       }
+
+       .msg {
+              background: #fff3cd;
+              border: 1px solid #ffe69c;
+              color: #664d03;
+              padding: 10px 12px;
+              border-radius: 8px;
+              margin: 12px 0;
+       }
+
+       .mono {
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+       }
+
+       .line {
+              margin: -20px;
+       }
+
+       .linha {
+              margin: 1px;
+       }
+
+       .maior {
+              margin-top: 30px;
+       }
+
+       h2,
+       h3 {
+              margin-bottom: 8px;
+              color: #007D45;
+              display: flex;
+              justify-content: center;
+              font-size: 35px;
+       }
+
+       h2 {
+              margin-top: 20px;
+       }
+
+       a {
+              display: inline-block;
+              padding: 14px 28px;
+              background-color: #007D45;
+              color: #fff;
+              font-size: 18px;
+              font-weight: bold;
+              border-radius: 12px;
+              text-decoration: none;
+              transition: 0.3s;
+              background-color: #005c32;
+       }
+
+       a:hover {
+              background-color: #007D45;
+       }
+
+       .resultado-card {
+              margin-top: 20px;
+              text-align: center;
+       }
+</style>
+
+<body>
+       {% if enviado %} <!-- NÃO TIRA ISSO GABS-->
+       <div class="card">
+              <h2>Notas</h2><br>
+              <div class="grid-2 mono">
+                     <div class="part_notas">
+                            <div>Menor nota Matemática (SinfM): {{ '%.2f' % SinfM }}</div><br>
+                            <div>Menor nota Português (SinfP): {{ '%.2f' % SinfP }}</div>
+                            <h3 class="linha">_______________________</h3>
+                            <div class="maior">Maior nota Matemática (SsupM): {{ '%.2f' % SsupM }}</div><br>
+                            <div>Maior nota Português (SsupP): {{ '%.2f' % SsupP }}</div><br>
+                     </div>
+              </div>
+       </div>
+
+       <div class="card">
+              <h2>Proficiência Média</h2><br>
+              <div class="grid-2 mono">
+                     <div class="profic">
+                            <div>Média Extrema Matemática: {{ '%.2f' % MediaExM }}</div><br>
+                            <div>Média Extrema Português: {{ '%.2f' % MediaExP }}</div>
+                            <h3 class="linha">_______________________</h3>
+                            <div class="maior">Proficiência Matemática: {{ '%.2f' % ProficM }}</div><br>
+                            <div>Proficiência Português: {{ '%.2f' % ProficP }}</div><br>
+                            <div class="mediaT"><strong>Média Total:</strong> {{ '%.2f' % MediaTotal }}</div>
+                     </div>
+              </div>
+       </div>
+
+       <div class="card">
+              <h2>Aprovação</h2>
+              <div class="grid-2 mono">
+                     <h3 class="line">_______________________</h3>
+                     <div class="taxa">
+                            <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div><br>
+                            <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div><br>
+                            <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div><br>
+                     </div>
+
+                     <h3 class="line">_______________________</h3>
+                     <div class="aprovad">
+                            <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div><br>
+                            <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div><br>
+                            <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div>
+                     </div>
+
+                     <h3 class="line">_______________________</h3>
+                     <div class="deBaixo">
+                            <div>Total: {{ '%.4f' % Total }}</div><br>
+                            <div>Tempo: {{ '%.4f' % Tempo }}</div><br>
+                            <div>Padronizado: {{ '%.4f' % Padronizado }}</div><br>
+                     </div>
+              </div>
+       </div>
+
+       <div class="card">
+              <h2>IDEB</h2><br>
+              <div class="grid-2 mono">
+                     <div class="ideb">
+                            <div>IDEB: {{ '%.2f' % IDEB }}</div>
+                     </div>
+              </div>
+       </div>
+       </div>
+       {% endif %} <!-- NÃO TIRA ISSO GABS-->
+
+       <div class="resultado-card">
+              <a href="/">🔄 Calcular Novamente</a>
+       </div>
+
+</body>
+
+</html>
