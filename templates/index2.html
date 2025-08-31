@@ -184,24 +184,25 @@
               <div class="grid-2 mono">
                      <h3 class="line">_______________________</h3>
                      <div class="taxa">
-                            <div>Taxa 1ª série: {{ '%.4f' % Tx1 }}</div><br>
-                            <div>Taxa 2ª série: {{ '%.4f' % Tx2 }}</div><br>
-                            <div>Taxa 3ª série: {{ '%.4f' % Tx3 }}</div><br>
+                            <div>Taxa 1ª série: {{ '%.2f' % (Tx1 * 100) }}%</div><br>
+                            <div>Taxa 2ª série: {{ '%.2f' % (Tx2 * 100) }}%</div><br>
+                            <div>Taxa 3ª série: {{ '%.2f' % (Tx3 * 100) }}%</div><br>
                      </div>
 
                      <h3 class="line">_______________________</h3>
                      <div class="aprovad">
-                            <div>Aprovação 1ª série: {{ '%.4f' % Ap1 }}</div><br>
-                            <div>Aprovação 2ª série: {{ '%.4f' % Ap2 }}</div><br>
-                            <div>Aprovação 3ª série: {{ '%.4f' % Ap3 }}</div>
+                            <div>Aprovação 1ª série: {{ '%.2f' % (Ap1 * 100) }}%</div><br>
+                            <div>Aprovação 2ª série: {{ '%.2f' % (Ap2 * 100) }}%</div><br>
+                            <div>Aprovação 3ª série: {{ '%.2f' % (Ap3 * 100) }}%</div>
                      </div>
 
                      <h3 class="line">_______________________</h3>
                      <div class="deBaixo">
-                            <div>Total: {{ '%.4f' % Total }}</div><br>
-                            <div>Tempo: {{ '%.4f' % Tempo }}</div><br>
-                            <div>Padronizado: {{ '%.4f' % Padronizado }}</div><br>
+                            <div>Total: {{ '%.2f' % (Total * 100) }}%</div><br>
+                            <div>Tempo: {{ '%.2f' % (Tempo * 100) }}%</div><br>
+                            <div>Padronizado: {{ '%.2f' % (Padronizado * 10) }}%</div><br>
                      </div>
+
               </div>
        </div>
 
