@@ -3,14 +3,14 @@
 
 <head>
        <meta charset="utf-8" />
-       <title>Cálculo IDEB </title>
+       <title>CIM | Calcula IDEB Miguel Gurgel</title>
        <meta name="viewport" content="width=device-width, initial-scale=1" />
        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
        <link rel="shortcut icon" href="https://img.icons8.com/pulsar-gradient/48/calculator.png" type="image/x-icon">
 </head>
 <style>
        body {
-              font-family:'Times New Roman', Times, serif;
+              font-family: 'Times New Roman', Times, serif;
               max-width: 900px;
               margin: 24px auto;
               padding: 0 16px;
@@ -53,21 +53,21 @@
               align-items: start;
               color: #030f0f;
        }
-       
+
        label {
               display: grid;
               gap: 6px;
               color: #F5F5F5;
        }
 
-       
-       
+
+
        input {
               padding: 10px;
               border: 1px solid #ddd;
               border-radius: 8px;
        }
-       
+
        button {
               grid-column: 1 / -1;
               padding: 12px;
@@ -76,32 +76,32 @@
               cursor: pointer;
               font-weight: 600;
        }
-       
+
        button {
               background: #20742D;
               color: #fff;
               font-size: 20px;
        }
-       
+
        button:hover {
               background-color: #358926;
               animation: escala 0.4s ease-in-out;
        }
-       
+
        @keyframes escala {
               0% {
                      transform: scale3d(1, 1, 1);
               }
-              
+
               50% {
                      transform: scale3d(1.05, 1.05, 1.05);
               }
-              
+
               100% {
                      transform: scale3d(1, 1, 1);
               }
        }
-       
+
        .estrela_mg {
               width: 90px;
               height: 90px;
@@ -279,12 +279,36 @@
               text-align: center;
               margin-top: -30px;
        }
+
+       .img_menu {
+              display: flex;
+              margin-left: 200px;
+              gap: 200px;
+              justify-content: center;
+              align-items: center;
+       }
+
+       .ri-menu-line {
+              border: 2px solid #007D45;
+              font-size: 30px;
+              padding: 10px;
+              color: #007D45;
+              border-radius: 16px;
+              cursor: pointer;
+       }
+
+       a {
+              text-decoration: none;
+       }
 </style>
 
 <body>
-       <img src="https://i.ibb.co/KxRctrkb/73-Sem-T-tulo-20250827094537.png" alt="logo__mg" class="logo_mg">
-       <!--Mudar isso-->
+       <div class="img_menu">
+              <img src="https://i.ibb.co/KxRctrkb/73-Sem-T-tulo-20250827094537.png" alt="logo__mg" class="logo_mg">
+              <!--Mudar isso-->
 
+              <a href="#"><i class="ri-menu-line"></i></a>
+       </div>
        <h1>Cálculo de IDEB </h1><br>
 
        {% with messages = get_flashed_messages() %} <!-- NÃO TIRA ISSO GABS-->
@@ -312,7 +336,7 @@
                      Alunos 1ª série
                      <input type="text" name="Alunos1" placeholder="Nº de Alunos" step="0.01" required />
               </label>
-              
+
               <label class="Salas">
                      Alunos 2ª série
                      <input type="text" name="Alunos2" placeholder="Nº de Alunos" step="0.01" required />
@@ -322,7 +346,7 @@
                      Alunos 3ª série
                      <input type="text" name="Alunos3" placeholder="Nº de Alunos" step="0.01" required />
               </label>
-              
+
               <label class="Aprov">
                      Aprovados 1ª série
                      <input type="text" name="Aprov1" placeholder="Nº de Aprovados" step="0.01" required />
@@ -349,8 +373,8 @@
        <footer class="footer" id="footer">
               <div class="footer__container container grid">
                      <div class="footer__social">
-                            <a href="https://www.instagram.com/eeepmiguelgurgel?igsh=Mnc2MWZsaXdmMGR0" target="_blank" rel="noopener"
-                                   class="footer__social-link">
+                            <a href="https://www.instagram.com/eeepmiguelgurgel?igsh=Mnc2MWZsaXdmMGR0" target="_blank"
+                                   rel="noopener" class="footer__social-link">
                                    <i class="ri-instagram-line"></i> Instagram
                             </a>
 
@@ -358,7 +382,8 @@
                                    <i class="ri-github-fill"></i> GitHub
                             </a>
 
-                            <a href="https://download.inep.gov.br/educacao_basica/portal_ideb/o_que_e_o_ideb/Nota_Tecnica_n1_concepcaoIDEB.pdf" target="_blank" rel="noopener" class="footer__social-link">
+                            <a href="https://download.inep.gov.br/educacao_basica/portal_ideb/o_que_e_o_ideb/Nota_Tecnica_n1_concepcaoIDEB.pdf"
+                                   target="_blank" rel="noopener" class="footer__social-link">
                                    <i class="ri-folder-info-line"></i> Informations
                             </a>
                      </div>
@@ -369,7 +394,6 @@
                             </span>
                      </div>
               </div>
-
        </footer>
 </body>
 
