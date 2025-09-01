@@ -1,6 +1,6 @@
 # CIM
 
-CIM é uma aplicação web desenvolvida por alunos da Escola Miguel Gurgel para facilitar o cálculo e acompanhamento do IDEB (Índice de Desenvolvimento da Educação Básica). O objetivo é tornar o processo mais rápido, acessível e visualmente agradável para gestores e educadores.
+CIM é uma aplicação web desenvolvida por alunos da Escola Miguel Gurgel para facilitar o cálculo e para acompanhamento do IDEB (Índice de Desenvolvimento da Educação Básica). O objetivo é tornar o processo mais rápido, acessível e visualmente agradável gestores e educadores.
 
 ## Funcionalidades
 
