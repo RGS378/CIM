@@ -90,7 +90,7 @@ def index():
             ))
 
             # Vai pra tela de resultados
-            return render_template("index2.html", **contexto)
+            return render_template("result.html", **contexto)
 
         except ValueError:
             flash("Preencha todos os campos corretamente (números válidos).")
