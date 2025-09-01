@@ -302,16 +302,16 @@
        }
 
        .logo_topo {
-              width: 120px;
-              height: auto;
+              width: 120px 120px;
+              max-width: 100px;
        }
 </style>
 
 <body>
        <div class="img_menu">
-              <img src="https://i.ibb.co/5X7M8pMd/17-Sem-T-tulo-20250831212517.png" alt="logo_mg" border="0" class="logo_topo">
-              <img src="https://i.ibb.co/7xDgVFzz/15-Sem-T-tulo-20250831210739.png" alt="logo_nameMG" class="logo_topo">
-              <img src="https://i.ibb.co/SDwND4C4/Bras-o-do-Cear-svg.png" alt="logo_CE" border="0" class="logo_topo">
+              <img src="{{ url_for('static', filename='img/logoMG.png') }}" alt="logo_mg" class="logo_topo">
+              <img src="{{ url_for('static', filename='img/name.png') }}" alt="logo_nameMG" class="logo_topo">
+              <img src="{{ url_for('static', filename='img/logo_CE.png') }}" alt="logo_CE" class="logo_topo">
               
               <a href="#"><i class="ri-menu-line"></i></a>
        </div>
