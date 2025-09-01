@@ -47,3 +47,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 
 - **Domingos** — Apoio no Back-end  
   [github.com/Charaktane](https://github.com/Charaktane)
+
+## Colaboradores
+- **Kevin Leandro** - DesignWeb 
+  [Instagram.com/Kevin20_leandro](https://www.instagram.com/kevin20_leandro?igsh=MWZlMmNyZXFnazht)
