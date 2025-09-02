@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -109,8 +109,15 @@
        }
 
        @keyframes flutuar {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-10px); }
+
+              0%,
+              100% {
+                     transform: translateY(0);
+              }
+
+              50% {
+                     transform: translateY(-10px);
+              }
        }
 
        .star_mg {
@@ -122,8 +129,15 @@
        }
 
        @keyframes voar {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-4px); }
+
+              0%,
+              100% {
+                     transform: translateY(0);
+              }
+
+              50% {
+                     transform: translateY(-4px);
+              }
        }
 
        /*======== FOOTER =========*/
@@ -216,13 +230,17 @@
        .footer__group,
        .footer__social {
               display: flex;
-       }
-
-       .footer__group {
-              margin-top: 5rem;
               flex-direction: column;
               align-items: center;
               row-gap: 2rem;
+       }
+
+       .footer__group {
+              margin-top: 2rem;
+              flex-direction: column;
+              align-items: center;
+              row-gap: 5rem;
+              margin-top: 54px;
        }
 
        .footer__social {
@@ -273,41 +291,63 @@
               text-decoration: none;
        }
 
+       input {
+              text-decoration: none;
+       }
+
        /* === Ajuste de logos === */
-       .logo_top {
-              width: 600px;
-              height: 130px; /* +80 em relação ao .logo_topo */
-              object-fit: contain;
-              border: 2px solid #007D45;
-       }
-
        .logo_topo {
-              width: 600px;
-              height: 100px;
-              object-fit: contain;
-              border: 2px solid #007D45;
-              margin-left: -50px;
+              max-width: 96%;
+              height: 100%;
+              margin-top: -23.5px;
+              margin-right: 35px;
        }
 
-       .logo {
-              width: 5000px;
-              height: 80px;
-              border: 2px solid #007D45;
-              object-fit: contain;
-              margin-left: -50px;
-              margin-top: 30px;
-              margin-bottom: 30px;
+       /* Sidebar padrão fechado */
+       .sidebar {
+              position: fixed;
+              top: 0;
+              right: -100%;
+              /* escondido */
+              width: 300px;
+              height: 100%;
+              background: #007D45;
+              box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+              transition: right 0.4s ease-in-out;
+              z-index: 999;
+              overflow-y: auto;
+              padding: 20px;
+       }
+
+       /* Quando ativo */
+       .sidebar.active {
+              right: 0;
+       }
+
+       /* Conteúdo */
+       .sidebar-content {
+              display: flex;
+              flex-direction: column;
+              height: 20%;
+       }
+
+       /* Botão de fechar */
+       .close-btn {
+              font-size: 28px;
+              font-weight: bold;
+              cursor: pointer;
+              align-self: flex-end;
+              color: #000000;
+              margin-bottom: 20px;
        }
 </style>
 
 <body>
        <div class="img_menu">
-              <img src="https://i.ibb.co/5X7M8pMd/17-Sem-T-tulo-20250831212517.png" alt="logo_mg" class="logo_top">
-              <img src="https://i.ibb.co/KjNWSH9T/73-Sem-T-tulo-20250827150821.png" alt="logo_nameMG" class="logo">
-              <img src="https://i.ibb.co/SDwND4C4/Bras-o-do-Cear-svg.png" alt="logo_CE" class="logo_topo">
-              
-              <a href="#"><i class="ri-menu-line"></i></a>
+              <img src="https://i.ibb.co/G4mfqCq3/1756292515265.png" alt="logo_mg" class="logo_topo">
+              <a href="javascript:void(0)" id="openSidebar"><i class="ri-menu-line"></i></a>
        </div>
+
        <h1>Cálculo de IDEB </h1><br>
 
        {% with messages = get_flashed_messages() %} <!-- NÃO TIRA ISSO GABS-->
@@ -320,11 +360,11 @@
               <!-- Médias da escola -->
               <label class="Mat">
                      Média da escola em Matemática
-                     <input type="text" name="EscolaM" placeholder="Digite Aqui" step="0.01" required />
+                     <input type="number" name="EscolaM" placeholder="Digite Aqui" step="1" required />
               </label>
               <label class="Port">
                      Média da escola em Português
-                     <input type="text" name="EscolaP" placeholder="Digite Aqui" step="0.01" required />
+                     <input type="number" name="EscolaP" placeholder="Digite Aqui" step="1" required />
               </label>
 
               <!-- Aprovação por série -->
@@ -333,32 +373,32 @@
 
               <label class="Salas">
                      Alunos 1ª série
-                     <input type="text" name="Alunos1" placeholder="Nº de Alunos" step="0.01" required />
+                     <input type="number" name="Alunos1" placeholder="Nº de Alunos" step="1" required />
               </label>
 
               <label class="Salas">
                      Alunos 2ª série
-                     <input type="text" name="Alunos2" placeholder="Nº de Alunos" step="0.01" required />
+                     <input type="number" name="Alunos2" placeholder="Nº de Alunos" step="1" required />
               </label>
 
               <label class="Salas">
                      Alunos 3ª série
-                     <input type="text" name="Alunos3" placeholder="Nº de Alunos" step="0.01" required />
+                     <input type="number" name="Alunos3" placeholder="Nº de Alunos" step="1" required />
               </label>
 
               <label class="Aprov">
                      Aprovados 1ª série
-                     <input type="text" name="Aprov1" placeholder="Nº de Aprovados" step="0.01" required />
+                     <input type="number" name="Aprov1" placeholder="Nº de Aprovados" step="1" required />
               </label>
 
               <label class="Aprov">
                      Aprovados 2ª série
-                     <input type="text" name="Aprov2" placeholder="Nº de Aprovados" step="0.01" required />
+                     <input type="number" name="Aprov2" placeholder="Nº de Aprovados" step="1" required />
               </label>
 
               <label class="Aprov">
                      Aprovados 3ª série
-                     <input type="text" name="Aprov3" placeholder="Nº de Aprovados" step="0.01" required />
+                     <input type="number" name="Aprov3" placeholder="Nº de Aprovados" step="1" required />
               </label>
 
               <button type="submit">Calcular</button>
@@ -366,15 +406,29 @@
 
        <img src="https://i.ibb.co/mCchgyVq/72-Sem-T-tulo-20250827083007.png" alt="estrela" class="star_mg">
 
-       <!-- FOOTER -->
+       <div class="footer__group">
+              <span class="footer__copy">
+                     &#169; Copyright CIM. All rights reserved
+              </span>
+       </div>
 
-       <footer class="footer" id="footer">
-              <div class="footer__container container grid">
-                     <div class="footer__social">
-                            <a href="https://www.instagram.com/eeepmiguelgurgel?igsh=Mnc2MWZsaXdmMGR0" target="_blank"
-                                   rel="noopener" class="footer__social-link">
-                                   <i class="ri-instagram-line"></i> Instagram
-                            </a>
+       <!-- FOOTER -->
+       <!-- Sidebar (footer) -->
+       <section id="footer-section" class="sidebar">
+              <div class="sidebar-content">
+                     <span id="closeSidebar" class="close-btn">&times;</span>
+                     <footer class="footer">
+                            <div class="footer__container container grid">
+                                   <div class="footer__social">
+                                          <a href="https://www.instagram.com/eeepmiguelgurgel?igsh=Mnc2MWZsaXdmMGR0"
+                                                 target="_blank" rel="noopener" class="footer__social-link">
+                                                 <i class="ri-instagram-line"></i> Instagram
+                                          </a>
+
+                                          <a href="https://github.com/" target="_blank" rel="noopener"
+                                                 class="footer__social-link">
+                                                 <i class="ri-github-fill"></i> GitHub
+                                          </a>
 
                             <a href="https://github.com/" target="_blank" rel="noopener" class="footer__social-link">
                                    <i class="ri-github-fill"></i> GitHub
@@ -392,7 +446,22 @@
                             </span>
                      </div>
               </div>
-       </footer>
+       </section>
+
+       <script>
+              const openBtn = document.getElementById('openSidebar');
+              const closeBtn = document.getElementById('closeSidebar');
+              const sidebar = document.getElementById('footer-section');
+
+              openBtn.addEventListener('click', () => {
+                     sidebar.classList.add('active');
+              });
+
+              closeBtn.addEventListener('click', () => {
+                     sidebar.classList.remove('active');
+              });
+       </script>
+
 </body>
 
 </html>
