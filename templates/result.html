@@ -46,10 +46,19 @@
                      border-bottom: 2px solid var(--primary-color);
               }
 
-              .logo-topo h2 {
-                     color: var(--primary-color);
-                     font-size: 28px;
-                     margin: 0;
+              .logo-topo {
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     flex: 1;
+              }
+
+              .logo_top {
+                     height: 90px;
+                     width: 0 auto;
+                     max-width: 200px;
+                     object-fit: contain;
+                     display: block;
               }
 
               nav ul {
@@ -60,7 +69,7 @@
 
               nav a {
                      text-decoration: none;
-                     color: var(--primary-color);
+                     color: #222;
                      font-weight: 500;
                      padding: 8px 16px;
                      border-radius: 6px;
@@ -70,7 +79,8 @@
 
               nav a:hover,
               nav a.active {
-                     background-color: var(--light-bg);
+                     background-color: #27a36b;
+                     color: white;
               }
 
               h1 {
@@ -236,6 +246,26 @@
                      margin-bottom: 25px;
               }
 
+              .team-info a {
+                     text-decoration: none;
+                     color: var(--primary-color);
+              }
+
+              .team-info a:hover {
+                     text-decoration: underline;
+              }
+
+              .ideb-card {
+                     grid-column: 1 / -1;
+                     max-width: 400px;
+                     margin: 0 auto;
+              }
+
+              .ideb-value {
+                     font-size: 3.5rem;
+                     color: var(--primary-color);
+              }
+
               @media (max-width: 768px) {
                      .dashboard-cards {
                             grid-template-columns: 1fr;
@@ -261,6 +291,19 @@
                             margin-right: 0;
                             margin-bottom: 15px;
                      }
+
+                     .ideb-card {
+                            max-width: 100%;
+                     }
+
+                     .logo_top {
+                            height: 90px;
+                            margin: 0 auto;
+                     }
+
+                     .logo-topo {
+                            justify-content: center;
+                     }
               }
        </style>
 </head>
@@ -268,7 +311,7 @@
 <body>
        <header>
               <div class="logo-topo">
-                     <h2>CIM</h2>
+                     <img src="https://i.ibb.co/G4mfqCq3/1756292515265.png" alt="Escola Miguel Gurgel" class="logo_top">
               </div>
               <nav>
                      <ul>
@@ -346,9 +389,9 @@
 
                      <h2 class="section-title">IDEB</h2>
                      <div class="dashboard-cards">
-                            <div class="dashboard-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+                            <div class="dashboard-card ideb-card">
                                    <h3>Índice de Desenvolvimento da Educação Básica</h3>
-                                   <div class="value" style="font-size: 3.5rem; color: var(--primary-color);">
+                                   <div class="ideb-value">
                                           {{ '%.2f' % IDEB }}
                                    </div>
                             </div>
@@ -367,17 +410,12 @@
                      <div class="sobre-card">
                             <h2>O que é o CIM?</h2>
                             <p>O CIM (Cálcula IDEB Miguel Gurgel) é uma plataforma desenvolvida para facilitar o
-                             cálculo e acompanhamento do IDEB (Índice de Desenvolvimento da Educação Básica). O objetivo é tornar o
-                            processo mais rápido, acessível e visualmente agradável para gestores e educadores.</p>
+                                   cálculo e acompanhamento do IDEB (Índice de Desenvolvimento da Educação Básica). O
+                                   objetivo es tornar o
+                                   processo mais rápido, acessível e visualmente agradável para gestores e educadores.
+                            </p>
                             <p>Nossa missão é fornecer às instituições de ensino uma ferramenta intuitiva e eficiente
                                    para monitorar o desempenho acadêmico e identificar oportunidades de melhoria.</p>
-                     </div>
-
-                     <h3 class="line">_______________________</h3>
-                     <div class="deBaixo">
-                            <div>Total: {{ '%.2f' % (Total * 100) }}%</div><br>
-                            <div>Tempo: {{ '%.2f' % (Tempo * 100) }}%</div><br>
-                            <div>Padronizado: {{ '%.2f' % (Padronizado * 100) }}%</div><br>
                      </div>
 
                      <div class="sobre-card">
@@ -387,7 +425,8 @@
                                    <img src="https://placehold.co/100x100/007D45/FFFFFF?text=R" alt="Richard">
                                    <div class="team-info">
                                           <a href="https://github.com/Richardblasty">
-                                                 <h3>Richard A. Marques</h3></a>
+                                                 <h3>Richard A. Marques</h3>
+                                          </a>
                                           <p>Desenvolvedor Back-end e líder do projeto</p>
                                    </div>
                             </div>
@@ -395,7 +434,9 @@
                             <div class="team-member">
                                    <img src="https://placehold.co/100x100/007D45/FFFFFF?text=G" alt="Gabriel">
                                    <div class="team-info">
-                                          <a href="https://github.com/Gabriel151324"><h3>Gabriel A. Fidelis</h3></a>
+                                          <a href="https://github.com/Gabriel151324">
+                                                 <h3>Gabriel A. Fidelis</h3>
+                                          </a>
                                           <p>Desenvolvedor Front-end</p>
                                    </div>
                             </div>
@@ -403,7 +444,9 @@
                             <div class="team-member">
                                    <img src="https://placehold.co/100x100/007D45/FFFFFF?text=S" alt="Domingos">
                                    <div class="team-info">
-                                          <a href="https://github.com/Charaktane"><h3>Suyanne G.S Domingos</h3></a>
+                                          <a href="https://github.com/Charaktane">
+                                                 <h3>Suyanne G.S Domingos</h3>
+                                          </a>
                                           <p>Desenvolvedor Back-end</p>
                                    </div>
                             </div>
@@ -416,7 +459,10 @@
                                    <div class="team-member">
                                           <img src="https://placehold.co/100x100/007D45/FFFFFF?text=K" alt="Kevin">
                                           <div class="team-info">
-                                                 <a href="https://www.instagram.com/kevin20_leandro?igsh=MWZlMmNyZXFnazht"><h3>Kevin Leandro B. M.</h3></a>
+                                                 <a
+                                                        href="https://www.instagram.com/kevin20_leandro?igsh=MWZlMmNyZXFnazht">
+                                                        <h3>Kevin Leandro B. M.</h3>
+                                                 </a>
                                                  <p>Design Gráfico</p>
                                                  <p>Responsável pelo design da interface visual</p>
                                           </div>
