@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, os
+from flask import Flask, render_template, request, flash
 from decimal import Decimal, getcontext
 import os
 
