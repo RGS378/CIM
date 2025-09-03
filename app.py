@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, os
 from decimal import Decimal, getcontext
 
 # Define a precisão global
 getcontext().prec = 10
 
 app = Flask(__name__)
-app.secret_key = "dev"
+app.secret_key = os.urandom(24)
 
 # Constantes
 MediaM = Decimal('288.7')
@@ -107,4 +107,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
