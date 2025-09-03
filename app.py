@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, flash
 from decimal import Decimal, getcontext
+import os
 
 # Define a precisão global
 getcontext().prec = 10
 
 app = Flask(__name__)
-app.secret_key = "dev"
+app.secret_key = os.urandom(24)
 
 # Constantes
 MediaM = Decimal('288.7')
