@@ -86,4 +86,4 @@ Padronizado = Decimal('1') / Tempo if Tempo > 0 else Decimal('0')
 print(f'O padronizado é {Padronizado * Decimal("100"):.2f}%')
 
 IDEB = MediaTotal * Padronizado
-print(f'A nota da IDEB é {IDEB}')
+print(f'A nota da IDEB é {IDEB}') 
