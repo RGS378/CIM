@@ -46,7 +46,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
   [github.com/Gabriel151324](https://github.com/Gabriel151324)
 
 - **Domingos** — Apoio no Back-end  
-  [github.com/Charaktane](https://github.com/Charaktane)
+  [github.com/Charaktane](https://github.com/suyanneDomingos)
 
 ## Colaboradores
 
