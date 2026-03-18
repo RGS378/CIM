@@ -43,7 +43,7 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
   [github.com/Richardblasty](https://github.com/Richardblasty)
 
 - **Gabriel** — Desenvolvedor Front-end  
-  [github.com/Gabriel151324](https://github.com/Gabriel151324)
+  [github.com/Gabriel151324](https://github.com/GabrielAguiarFidelis)
 
 - **Domingos** — Apoio no Back-end  
   [github.com/suyanneDomingos](https://github.com/suyanneDomingos)
