@@ -26,7 +26,7 @@ CIM é uma aplicação web desenvolvida por alunos da Escola Miguel Gurgel para 
    ```
    python app.py
    ```
-3. Acesse no navegador: [http://localhost:5000](http://localhost:5000)
+3. Acesse no navegador: [http://localhost:5000](http://localhost:5000) ou abra [Pelo site!]( https://cim-ejd8.onrender.com/)
 
 ## Contribuição
 
